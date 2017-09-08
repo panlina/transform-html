@@ -13,14 +13,7 @@ function transform(_cssx) {
 function apply(style, element) {
 	for (var name in style) {
 		var value = style[name];
-		switch (name) {
-			case 'text':
-				element.text(value);
-				break;
-			case 'before':
-				element.before(value);
-				break;
-		}
+		element[name](value);
 	}
 }
 module.exports = transform;
