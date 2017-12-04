@@ -1,8 +1,8 @@
 var cheerio = require('cheerio');
 var cssx = require('cssx');
 function transform(_cssx) {
-	return function (html) {
-		var $ = cheerio.load(html);
+	return function (html, options, isDocument) {
+		var $ = cheerio.load(html, options, isDocument);
 		_cssx = cssx.parse(_cssx);
 		var elementrule = cssx(_cssx)($($._root));
 		for (var id in elementrule)
